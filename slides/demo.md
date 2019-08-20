@@ -1,0 +1,8 @@
+Endpoint definition
+Client implementation
+Client usage
+Server implementation
+Documentation implementation
+Endpoint modification
+Compile-time errors
+Updated documentation
