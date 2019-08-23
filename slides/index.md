@@ -195,9 +195,9 @@ val eventualB: Future[B] = api.compute(a)
 
 ![](extensibility.svg)
 
-## Questions?
+# Questions?
 
-## Appendix
+# Appendix
 
 ### *endpoints* vs Tapir {.unnumbered}
 

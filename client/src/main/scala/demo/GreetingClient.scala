@@ -18,13 +18,10 @@ object GreetingClient extends Greeting with xhr.future.Endpoints with xhr.circe.
     val people = getInputValue("input[name=people]").toInt
     val eventualResponse: Future[String] = hello(ScalaUserGroup(name, people))
     eventualResponse.onComplete {
-      case Success(message)   => dom.document.querySelector("#say-hello-result").textContent = message
-      case Failure(exception) => dom.console.error(exception.toString)
+      case Success(response)  => dom.document.getElementById("say-hello-result").textContent = response
+      case Failure(exception) => dom.console.error(s"Unable to reach the server, $exception")
     }
   }
-
-  @JSExport()
-  def `do`(): Unit = ()
 
   def getInputValue(selector: String): String =
     dom.document.querySelector(selector).asInstanceOf[HTMLInputElement].value

@@ -1,11 +1,10 @@
 package demo
 
-import endpoints.akkahttp.server
 import akka.http.scaladsl.server.Directives._
-import endpoints.openapi
-import endpoints.openapi.model.OpenApi
+import endpoints.akkahttp.server
+import endpoints.openapi.model.{OpenApi, OpenApiSchemas}
 
-object GreetingServer extends Greeting with server.Endpoints with server.playjson.JsonSchemaEntities with openapi.model.OpenApiSchemas {
+object GreetingServer extends Greeting with server.Endpoints with server.playjson.JsonSchemaEntities with OpenApiSchemas {
 
   val documentation =
     endpoint(get(path / "documentation"), jsonResponse[OpenApi]())

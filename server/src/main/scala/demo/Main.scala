@@ -18,7 +18,7 @@ object Main {
     val port = 8000
     val routes = WebInterface.routes ~ GreetingServer.routes
     val binding = Http().bindAndHandle(routes, interface, port)
-    println(s"Server online at http://$interface:$port")
+    println(s"Server online at http://locahost:$port")
 
     sys.addShutdownHook {
       Await.result(Await.result(binding, 10.seconds).terminate(3.seconds), 15.seconds)

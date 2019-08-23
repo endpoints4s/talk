@@ -4,7 +4,7 @@ scalaVersion := "2.12.8"
 
 name := "endpoints-talk"
 
-val endpointsVersion = "0.10.0"
+val endpointsVersion = "0.10.1"
 
 val shared =
   crossProject(JSPlatform, JVMPlatform)
