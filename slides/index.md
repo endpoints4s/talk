@@ -89,10 +89,10 @@ val eventualB: Future[B] = refA.ask(refB => Compute(a, refB))
 
 ### Akka: Cons {.unnumbered}
 
-> - All the nodes have to use the Akka communication protocol
->     - Not appropriate to expose a public API
 > - Remote invocation as an `(A, ActorRef[B]) => Unit` function
 >     - Tedious plumbing
+> - All the nodes have to use the Akka communication protocol
+>     - Not appropriate to expose a public API
 
 ### HTTP Services {.unnumbered}
 
@@ -104,15 +104,14 @@ val eventualB: Future[B] =
 ~~~
 
 - Clients and servers can have their own tech stack
-- HTTP APIs can be documented (both in human-readable and machine-readable ways)
 
 ### HTTP Services: Cons {.unnumbered}
 
-- Building HTTP requests is tedious
-- Documenting an HTTP API is tedious
-- Untyped
-    - No compile-time guarantee that requests are well-formed
-    - No IDE assistance
+> - Building HTTP requests is tedious
+> - Documenting an HTTP API is tedious
+> - Untyped
+>     - No compile-time guarantee that requests are well-formed
+>     - No IDE assistance
 
 ### WSDL {.unnumbered}
 
@@ -128,20 +127,19 @@ a tool like scalaxb)
 
 ### WSDL: Cons {.unnumbered}
 
-- No streaming
-- XML service definitions are tedious to read or write
-- Relies on code generation
-    - Requires extra step in build
-    - Generated code sometimes does not compile
-    - Generated code may impose constraints on the way it can be used
+> - No streaming
+> - XML service definitions are tedious to read or write
+> - Relies on code generation
+>     - Requires extra step in build
+>     - Generated code sometimes does not compile
+>     - Generated code may impose constraints on the way it can be used
 
 ### gRPC {.unnumbered}
 
-- Service definitions written in a human-readable format
-- Better performance (HTTP2, binary serialization)
-- Streaming
-- Data types evolution via protobuf?
-- But still, relies on code generation!
+> - Service definitions written in a human-readable format
+> - Better performance (HTTP2, binary serialization)
+> - Streaming
+> - But still, relies on code generation!
 
 ### Meta-Programming {.unnumbered}
 
@@ -149,18 +147,18 @@ Idea: mitigate code generation issues by synthesizing code
 with macros instead
 
 ~~~ scala
-trait Api {
+trait Service {
   def compute(a: A): B
 }
 
-val api = synthesized.Client[Api]
-val eventualB: Future[B] = api.compute(a)
+val service = synthesized.Client[Service]
+val eventualB: Future[B] = service.compute(a)
 ~~~
 
 ### Meta-Programming: Cons {.unnumbered}
 
-- Poor tooling support
-- Second-class citizen
+> - Poor tooling support
+> - Second-class citizen
 
 ### Summary {.unnumbered}
 
@@ -196,10 +194,3 @@ val eventualB: Future[B] = api.compute(a)
 ![](extensibility.svg)
 
 # Questions?
-
-# Appendix
-
-### *endpoints* vs Tapir {.unnumbered}
-
-[Tapir](https://tapir-scala.readthedocs.io/en/latest/) uses a closed endpoint
-description language, whereas *endoints* uses an extensible description language.
