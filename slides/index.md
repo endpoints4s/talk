@@ -79,7 +79,7 @@ val b: B = service.compute(a)
 ~~~ scala
 import akka.actor.typed.scaladsl.AskPattern._
 
-val eventualB: Future[B] = refA.ask(refB => Compute(a, refB))
+val eventualB: Future[B] = serviceRef.ask(ref => Compute(a, ref))
 ~~~
 
 - Non-blocking, efficient
@@ -98,7 +98,7 @@ val eventualB: Future[B] = refA.ask(refB => Compute(a, refB))
 
 ~~~ scala
 val eventualB: Future[B] =
-  httpClient.post("/compute", a.toJson)
+  httpClient.post("http://service/compute", a.toJson)
     .filter(_.status == 200)
     .flatMap(_.entity.asJson.to[B])
 ~~~
