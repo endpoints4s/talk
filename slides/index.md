@@ -9,6 +9,12 @@
 - Demo
 - Design
 
+### {.unnumbered}
+
+<div style="text-align: center; margin-top: -4em;"><p style="margin: 0;">
+<img src="bestmile-sponsor.png" alt="bestmile sponsor" style="max-width: 100%; max-height: 26em;">
+</p></div>
+
 # Motivation
 
 ## Context
@@ -168,7 +174,7 @@ val eventualB: Future[B] = service.compute(a)
 
 # Design
 
-### Just a Plain Old Library {.unnumbered}
+### Just a Boring Library {.unnumbered}
 
 ### First-Class Scala Values {.unnumbered}
 
@@ -193,4 +199,9 @@ val eventualB: Future[B] = service.compute(a)
 
 ![](extensibility.svg)
 
-# Questions?
+# The End
+
+### Thanks for your attention {.unnumbered}
+
+Any questions?
+
