@@ -139,6 +139,7 @@ a tool like scalaxb)
 >     - Requires extra step in build
 >     - Generated code sometimes does not compile
 >     - Generated code may impose constraints on the way it can be used
+>     - Limited expressivity of the service definition language
 
 ### gRPC {.unnumbered}
 
@@ -165,10 +166,6 @@ val eventualB: Future[B] = service.compute(a)
 
 > - Poor tooling support
 > - Second-class citizen
-
-### Summary {.unnumbered}
-
-![](chart.svg)
 
 # Demo
 
