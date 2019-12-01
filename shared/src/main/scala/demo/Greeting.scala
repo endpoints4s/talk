@@ -10,8 +10,8 @@ trait Greeting extends algebra.Endpoints with algebra.JsonSchemaEntities {
   val hello: Endpoint[ScalaUserGroup, String] =
     endpoint(
 //      get(path / "hello" /? sugQuery),
-      post(path / "hello", jsonRequest[ScalaUserGroup](docs = Some("A Scala User Group"))),
-      textResponse(docs = Some("A welcome message to the Scala User Group"))
+      post(path / "hello", jsonRequest[ScalaUserGroup], docs = Some("A Scala User Group")),
+      ok(textResponse, docs = Some("A welcome message to the Scala User Group"))
     )
 
   implicit lazy val sugSchema: JsonSchema[ScalaUserGroup] = (

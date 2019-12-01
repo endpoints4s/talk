@@ -1,10 +1,10 @@
 import sbtcrossproject.CrossPlugin.autoImport.{crossProject, CrossType}
 
-scalaVersion := "2.12.8"
+scalaVersion := "2.13.1"
 
 name := "endpoints-talk"
 
-val endpointsVersion = "0.10.1"
+val endpointsVersion = "0.12.0"
 
 val shared =
   crossProject(JSPlatform, JVMPlatform)

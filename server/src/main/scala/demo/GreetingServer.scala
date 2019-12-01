@@ -7,7 +7,7 @@ import endpoints.openapi.model.{OpenApi, OpenApiSchemas}
 object GreetingServer extends Greeting with server.Endpoints with server.playjson.JsonSchemaEntities with OpenApiSchemas {
 
   val documentation =
-    endpoint(get(path / "documentation"), jsonResponse[OpenApi]())
+    endpoint(get(path / "documentation"), ok(jsonResponse[OpenApi]))
 
   val routes =
     hello.implementedBy { sug =>
