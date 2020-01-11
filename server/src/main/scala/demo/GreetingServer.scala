@@ -1,18 +1,12 @@
 package demo
 
-import akka.http.scaladsl.server.Directives._
 import endpoints.akkahttp.server
-import endpoints.openapi.model.{OpenApi, OpenApiSchemas}
 
-object GreetingServer extends Greeting with server.Endpoints with server.playjson.JsonSchemaEntities with OpenApiSchemas {
+object GreetingServer extends Greeting with server.Endpoints with server.JsonEntitiesFromSchemas {
 
-  val documentation =
-    endpoint(get(path / "documentation"), ok(jsonResponse[OpenApi]))
-
-  val routes =
+  val route =
     hello.implementedBy { sug =>
       s"Hello ${sug.people} folks at ${sug.name}!"
-    } ~
-    documentation.implementedBy(_ => GreetingDocs.documentation)
+    }
 
 }

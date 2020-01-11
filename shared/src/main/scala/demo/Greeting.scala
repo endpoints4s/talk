@@ -2,7 +2,7 @@ package demo
 
 import endpoints.algebra
 
-trait Greeting extends algebra.Endpoints with algebra.JsonSchemaEntities {
+trait Greeting extends algebra.Endpoints with algebra.JsonEntitiesFromSchemas {
 
 //  val sugQuery: QueryString[ScalaUserGroup] =
 //    (qs[String]("name") & qs[Int]("people")).xmap(ScalaUserGroup.tupled)(sug => (sug.name, sug.people))

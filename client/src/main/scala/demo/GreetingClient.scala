@@ -10,7 +10,7 @@ import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 import scala.util.{Failure, Success}
 
 @JSExportTopLevel("demo")
-object GreetingClient extends Greeting with xhr.future.Endpoints with xhr.circe.JsonSchemaEntities {
+object GreetingClient extends Greeting with xhr.future.Endpoints with xhr.JsonEntitiesFromSchemas {
 
   @JSExport()
   def sayHello(): Unit = {
