@@ -1,6 +1,6 @@
 package demo
 
-import endpoints.xhr
+import endpoints4s.xhr
 import org.scalajs.dom
 import org.scalajs.dom.raw.HTMLInputElement
 

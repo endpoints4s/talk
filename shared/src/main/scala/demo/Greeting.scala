@@ -1,6 +1,6 @@
 package demo
 
-import endpoints.algebra
+import endpoints4s.algebra
 
 trait Greeting extends algebra.Endpoints with algebra.JsonEntitiesFromSchemas {
 

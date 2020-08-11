@@ -1,8 +1,8 @@
 package demo
 
-import endpoints.akkahttp.server
-import endpoints.openapi
-import endpoints.openapi.model.{Info, OpenApi}
+import endpoints4s.akkahttp.server
+import endpoints4s.openapi
+import endpoints4s.openapi.model.{Info, OpenApi}
 
 object GreetingDocs extends Greeting with openapi.Endpoints with openapi.JsonEntitiesFromSchemas {
 

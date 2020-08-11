@@ -4,14 +4,14 @@ scalaVersion := "2.13.1"
 
 name := "endpoints-talk"
 
-val endpointsVersion = "0.13.0"
+val endpointsVersion = "1.0.0"
 
 val shared =
   crossProject(JSPlatform, JVMPlatform)
     .crossType(CrossType.Pure)
     .in(file("shared"))
     .settings(
-      libraryDependencies += "org.julienrf" %%% "endpoints-algebra" % endpointsVersion
+      libraryDependencies += "org.endpoints4s" %%% "algebra" % endpointsVersion
     )
 
 val client =
@@ -19,7 +19,7 @@ val client =
     .enablePlugins(ScalaJSPlugin, ScalaJSWeb)
     .dependsOn(shared.js)
     .settings(
-      libraryDependencies += "org.julienrf" %%% "endpoints-xhr-client" % endpointsVersion,
+      libraryDependencies += "org.endpoints4s" %%% "xhr-client" % endpointsVersion,
       libraryDependencies += "org.scala-js" %%% "scalajs-dom" % "0.9.7"
     )
 
@@ -28,7 +28,7 @@ val server =
     .enablePlugins(SbtWeb)
     .dependsOn(shared.jvm)
     .settings(
-      libraryDependencies += "org.julienrf" %% "endpoints-akka-http-server" % endpointsVersion,
+      libraryDependencies += "org.endpoints4s" %% "akka-http-server" % endpointsVersion,
       // Put client’s JavaScript artifact on the server’s classpath
       libraryDependencies += "com.vmunier" %% "scalajs-scripts" % "1.1.2",
       scalaJSProjects := Seq(client),
