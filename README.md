@@ -13,7 +13,7 @@ to require a new request parameter, the clients and the documentation may not au
 This results in additional work on the client and the documentation to carry that change forward, or, even worse,
 in a failure at run-time if developers didn’t notice that they introduced an incompatible change.
 
-To address this problem, I’ve created the [endpoints](http://julienrf.github.io/endpoints) library. It introduces
+To address this problem, I’ve created the [endpoints4s](http://endpoints4s.github.io/) library. It introduces
 just enough coupling between servers, clients and documentation such that they are automatically consistent regarding
 the communication protocol, while keeping the flexibility of using different technology stacks on servers and clients.
 
