@@ -1,6 +1,6 @@
 import sbtcrossproject.CrossPlugin.autoImport.{crossProject, CrossType}
 
-scalaVersion := "2.13.1"
+ThisBuild / scalaVersion := "2.13.2"
 
 name := "endpoints-talk"
 
@@ -30,7 +30,7 @@ val server =
     .settings(
       libraryDependencies += "org.endpoints4s" %% "akka-http-server" % endpointsVersion,
       // Put client’s JavaScript artifact on the server’s classpath
-      libraryDependencies += "com.vmunier" %% "scalajs-scripts" % "1.1.2",
+      libraryDependencies += "com.vmunier" %% "scalajs-scripts" % "1.1.4",
       scalaJSProjects := Seq(client),
       pipelineStages in Assets := Seq(scalaJSPipeline),
       managedClasspath in Runtime += (packageBin in Assets).value,
